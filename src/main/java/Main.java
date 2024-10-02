@@ -43,7 +43,14 @@ public class Main {
                 for (File file : files) {
                     if (file.isFile()) {
                         try {
+                            long fileStartTime = System.currentTimeMillis();
+
                             processFile(file, outputFolder);
+                            long fileEndTime = System.currentTimeMillis(); // End time for a single file
+                            long fileDuration = fileEndTime - fileStartTime;
+
+                            System.out.println("Time taken to process " + file.getName() + ": " + fileDuration + " ms.");
+
                         } catch (IOException e) {
                             System.err.println("Error processing file " + file.getName() + ": " + e.getMessage());
                         }
@@ -53,6 +60,12 @@ public class Main {
         } else {
             System.out.println("Input folder does not exist or is not a directory.");
         }
+        // End time measurement for the entire process
+        long endTime = System.currentTimeMillis();
+        long totalDuration = endTime - startTime;
+
+        // Output total time taken for processing all files
+        System.out.println("Total time taken for processing all files: " + totalDuration + " ms.");
     }
 
     /**
