@@ -8,7 +8,7 @@ import java.io.IOException;
  * Extract the text from CSV file.
  *
  * @author Ahsan Javed
- * GitHub: https://github.com/ahsan-javed-ds/file_text_extractor_java_project
+ * GitHub: <a href="https://github.com/ahsan-javed-ds/file_text_extractor_java_project</a>
  */
 
 public class CSVTextExtractor {

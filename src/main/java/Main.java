@@ -10,7 +10,7 @@ import java.io.IOException;
  * In the future, new file formats will also be supported.
  *
  * @author Ahsan Javed
- * GitHub: https://github.com/ahsan-javed-ds/file_text_extractor_java_project
+ * GitHub: <a href="https://github.com/ahsan-javed-ds/file_text_extractor_java_project</a>
  */
 
 public class Main {
