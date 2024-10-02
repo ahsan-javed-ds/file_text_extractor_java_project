@@ -29,7 +29,12 @@ public class Main {
 
         // Check: Output Directory existence, if it doesn't exist, will create a one for you
         if (!outputDir.exists()) {
-            outputDir.mkdir();
+            if (outputDir.mkdir()) {
+                System.out.println("Output directory created successfully.");
+            } else {
+                System.err.println("Failed to create output directory. Please check permissions or provide a valid path.");
+                return; // Exit the program if the directory couldn't be created
+            }
         }
 
         long startTime = System.currentTimeMillis();
@@ -77,7 +82,7 @@ public class Main {
     private static void processFile(File inputFile, String outputFolder) throws IOException {
         String filePath = inputFile.getPath();
         String fileType = getFileExtension(filePath);
-        String extractedText = "";
+        String extractedText;
 
         // Cases: Extraction of the text as per the given file-formats.
         switch (fileType) {
@@ -100,7 +105,7 @@ public class Main {
                 extractedText = CSVTextExtractor.extractTextFromCSV(filePath);
                 break;
             default:
-                System.out.println("We are regretfully informing you that we're not supporting this file-format at this moment, a future support will be coming soon...: " + filePath);
+                System.out.println("Regretfully, we're not supporting this file-format at this moment, a future support will be added soon...: " + filePath);
                 return;
         }
 
