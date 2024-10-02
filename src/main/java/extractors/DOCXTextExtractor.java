@@ -2,8 +2,10 @@ package extractors;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Extract the text from DOCX file.
@@ -14,10 +16,12 @@ import java.io.IOException;
 
 public class DOCXTextExtractor {
     public static String extractTextFromDOCX(String filePath) throws IOException {
-        XWPFDocument doc = new XWPFDocument(new FileInputStream(filePath));
-        StringBuilder text = new StringBuilder();
-        doc.getParagraphs().forEach(paragraph -> text.append(paragraph.getText()).append("\n"));
-        doc.close();
-        return text.toString();
+        Path path = Paths.get(filePath);
+        try (XWPFDocument doc = new XWPFDocument(Files.newInputStream(path))) {
+            // Code to extract text from the DOCX file
+            StringBuilder extractedText = new StringBuilder();
+            doc.getParagraphs().forEach(paragraph -> extractedText.append(paragraph.getText()).append("\n"));
+            return extractedText.toString();
+        }
     }
 }
