@@ -18,7 +18,10 @@ Download from: https://maven.apache.org/download.cgi
 ### To ensure the downloading of Java and Maven:
 
 Run the following command in the project terminal to ensure that you have successfully installed the Java and maven:
-```mvn -v```
+
+```bash
+mvn -v
+```
 
 The output will show something like this if you're using Windows:
 
@@ -32,7 +35,9 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 ### Cloning Text Extractor Java Project
 Clone the repository from GitHub after creating the necessary folders for input and output files.
 
-```git clone https://github.com/your-repo/Text_Extractor_Java.git```
+```bash
+git clone https://github.com/your-repo/Text_Extractor_Java.git
+```
 
 ### IDE (Optional but recommended)
 It's recommended to use an IDE such as ```IntelliJ IDEA``` to easily manage and run the project.
@@ -47,7 +52,9 @@ The project relies on the following ```Maven dependencies```:
 
 The ```pom.xml``` file includes all the required dependencies. To install them, run the following command in the project root folder:
 
-```mvn clean install```
+```bash
+mvn clean install
+```
 
 ### Project Structure
 The project is structured as follows:
